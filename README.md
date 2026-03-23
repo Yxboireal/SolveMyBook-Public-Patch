@@ -30,19 +30,20 @@ Click **Code → Download ZIP** on this repo and unzip it.
 
 ### 3. Replace these files
 Copy the following files from this repo into the `solve-my-book` folder, overwriting when prompted:
+You should be able to just drag everything from this repo into the folder and just click override files.
 ```
 manifest.json
 background.js
 contentscript.js
-m4d8/e3x9/autosolve.js           ← new file, create if missing
-m4d8/e3x9/autosolve_btn.js       ← new file, create if missing
-p8g3/s6t1/setup.html             ← new file, create if missing
-p8g3/s6t1/setup.js               ← new file, create if missing
+m4d8/e3x9/autosolve.js           ← new file, add
+m4d8/e3x9/autosolve_btn.js       ← new file, add
+p8g3/s6t1/setup.html             ← new file, add
+p8g3/s6t1/setup.js               ← new file, add
 p8g3/p9k4/434e26c4.html
-p8g3/p9k4/10602258.js
-p8g3/p9k4/popup-offline.js       ← new file, create if missing
-p8g3/p9k4/autosolve-settings.html ← new file, create if missing
-p8g3/p9k4/autosolve-settings.js  ← new file, create if missing
+p8g3/p9k4/popup-offline.js       ← new file, add
+p8g3/p9k4/autosolve-settings.html ← new file, add
+p8g3/p9k4/autosolve-settings.js  ← new file, add
+j5s2/p9k4/10602258.js
 ```
 ### 4. Load in Chrome
 1. Go to `chrome://extensions`
