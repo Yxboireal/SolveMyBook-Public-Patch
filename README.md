@@ -1,9 +1,8 @@
-<img width="79" height="77" alt="image" src="https://github.com/user-attachments/assets/0a5d5301-0ebe-4d1c-adc6-57476c67e722" />
-<img width="283" height="429" alt="image" src="https://github.com/user-attachments/assets/15853b5f-babd-46d9-bfd3-62581bf51b2e" />
 # SolveMyBook Offline Patch
 
 <p align="center">
-  <img src="https://your-image-url-here.png" width="200">
+  <img width="79" height="77" alt="image" src="https://github.com/user-attachments/assets/0a5d5301-0ebe-4d1c-adc6-57476c67e722" />
+<img width="283" height="429" alt="image" src="https://github.com/user-attachments/assets/15853b5f-babd-46d9-bfd3-62581bf51b2e" />
 </p>
 
 <p align="center">
