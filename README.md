@@ -15,7 +15,7 @@ Grab the original `solve-my-book.zip` and unzip it. You should have a folder cal
 Click **Code → Download ZIP** on this repo and unzip it.
 
 ### 3. Replace these files
-Copy the following files from this repo into the `solve-my-book-1_4_0` folder, overwriting when prompted:
+Copy the following files from this repo into the `solve-my-book` folder, overwriting when prompted:
 ```
 manifest.json
 background.js
