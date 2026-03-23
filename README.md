@@ -23,7 +23,7 @@ p8g3/p9k4/10602258.js
 p8g3/p9k4/popup-offline.js      ← new file, create if missing
 p8g3/p9k4/autosolve-settings.html  ← new file, create if missing
 p8g3/p9k4/autosolve-settings.js    ← new file, create if missing
-4. Load in Chrome
+5. Load in Chrome
 
 Go to chrome://extensions
 Enable Developer mode (top right)
