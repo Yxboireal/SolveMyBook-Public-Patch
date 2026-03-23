@@ -5,9 +5,9 @@ Patch for the discontinued SolveMyBook Chrome extension — replaces the broken 
 > This patch is released under the MIT License. The original SolveMyBook extension and its assets are property of solvemybook.com and are not covered by this license.
 ### ⚠️ Educational Use & Disclaimer
 
-This project was created **strictly for educational purposes** — to demonstrate how discontinued browser extensions can be patched to use modern AI APIs, and as a learning exercise in Chrome extension development, reverse engineering, and prompt engineering with LLMs.
+This project was created **strictly for educational purposes** to demonstrate how discontinued browser extensions can be patched to use modern AI APIs, and as a learning exercise in Chrome extension development, reverse engineering, and prompt engineering with LLMs.
 
-**This tool is intended to be used as a study aid** — to help you understand course material by showing you correct answers and explanations, not to replace learning.
+**This tool is intended to be used as a study aid** to help you understand course material by showing you correct answers and explanations, not to replace learning.
 
 **By using this extension you acknowledge that:**
 - You are responsible for how you use this tool and any consequences that may arise
