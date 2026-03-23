@@ -5,10 +5,13 @@ This patch is released under the MIT License. The original SolveMyBook extension
 
 
 Installation
+
 1. Get the original extension
 Download solve-my-book-1_4_0.zip and unzip it. You should have a folder called solve-my-book-1_4_0.
+
 2. Download this patch
 Click Code → Download ZIP on this repo and unzip it.
+
 3. Replace these files
 Copy the following files from this repo into the solve-my-book-1_4_0 folder, overwriting when prompted:
 manifest.json
@@ -23,8 +26,8 @@ p8g3/p9k4/10602258.js
 p8g3/p9k4/popup-offline.js      ← new file, create if missing
 p8g3/p9k4/autosolve-settings.html  ← new file, create if missing
 p8g3/p9k4/autosolve-settings.js    ← new file, create if missing
-5. Load in Chrome
 
+4. Load in Chrome
 Go to chrome://extensions
 Enable Developer mode (top right)
 Click Load unpacked
@@ -32,5 +35,6 @@ Select the solve-my-book-1_4_0 folder
 
 5. Enter your API key
 A setup page will open automatically. Paste your Anthropic API key from console.anthropic.com and click Save & Activate.
+
 6. Use it
 Navigate to any McGraw-Hill SmartBook assignment and click the teal 🎯 button in the bottom-right corner.
