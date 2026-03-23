@@ -13,7 +13,7 @@ This project was created **strictly for educational purposes** to demonstrate ho
 - You are responsible for how you use this tool and any consequences that may arise
 - Automating answers on graded assignments may violate your institution's academic integrity policy or McGraw-Hill's terms of service
 - The authors of this patch take **no responsibility** for academic penalties, account bans, or any other consequences resulting from misuse
-- AI-generated answers are not guaranteed to be correct — always verify answers against your course material
+- AI-generated answers are not guaranteed to be correct always verify answers against your course material
 
 **Use responsibly.** The goal is to understand the material, not skip it. Consider using the autosolve feature to check your own answers rather than replace them entirely.
 
