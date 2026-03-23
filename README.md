@@ -3,7 +3,21 @@
 Patch for the discontinued SolveMyBook Chrome extension — replaces the broken backend with your own Anthropic API key so it works again without an account or subscription.
 
 > This patch is released under the MIT License. The original SolveMyBook extension and its assets are property of solvemybook.com and are not covered by this license.
+### ⚠️ Educational Use & Disclaimer
 
+This project was created **strictly for educational purposes** — to demonstrate how discontinued browser extensions can be patched to use modern AI APIs, and as a learning exercise in Chrome extension development, reverse engineering, and prompt engineering with LLMs.
+
+**This tool is intended to be used as a study aid** — to help you understand course material by showing you correct answers and explanations, not to replace learning.
+
+**By using this extension you acknowledge that:**
+- You are responsible for how you use this tool and any consequences that may arise
+- Automating answers on graded assignments may violate your institution's academic integrity policy or McGraw-Hill's terms of service
+- The authors of this patch take **no responsibility** for academic penalties, account bans, or any other consequences resulting from misuse
+- AI-generated answers are not guaranteed to be correct — always verify answers against your course material
+
+**Use responsibly.** The goal is to understand the material, not skip it. Consider using the autosolve feature to check your own answers rather than replace them entirely.
+
+> *This patch is an independent project and is not affiliated with, endorsed by, or connected to Anthropic, McGraw-Hill, or solvemybook.com in any way.*
 ---
 
 ## Installation
@@ -56,3 +70,24 @@ You can monitor your usage at [console.anthropic.com](https://console.anthropic.
 
 ### 6. Use it
 Navigate to any McGraw-Hill SmartBook assignment and click the teal 🎯 button in the bottom-right corner.
+
+### 7. Limitations
+This patch works well for the most common SmartBook question types but has some limitations to be aware of:
+
+**Supported question types:**
+- ✅ Multiple choice (single answer)
+- ✅ Select all that apply
+- ✅ Fill in the blank (single and multiple blanks)
+
+**Not supported:**
+- ❌ Drag and drop / matching questions — the extension will get stuck and not advance
+- ❌ Diagram-based questions — where you click on parts of an image or label a diagram
+- ❌ Ordered sequence questions — where you drag items into the correct order
+- ❌ Hotspot questions — where you click a specific region of an image
+
+**Other limitations:**
+- The extension only works on **McGraw-Hill SmartBook** pages (`learning.mheducation.com`). It will not work on other platforms.
+- It requires an **active internet connection** to reach the Anthropic API — it is not truly offline, just account-free.
+- AI answers are not guaranteed to be correct. Sonnet and Haiku are strong models but can still make mistakes, especially on highly specific or niche topics.
+- If McGraw-Hill updates their website frontend, selectors may break and require a patch update.
+- The extension must remain as an **unpacked extension** — it cannot be published to the Chrome Web Store.
