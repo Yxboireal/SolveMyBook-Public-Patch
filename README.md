@@ -12,7 +12,7 @@
 </p>
 
 <p align="center">
-  <i>Patch the discontinued SolveMyBook extension to work again using your own Anthropic API key — no account or subscription needed.</i>
+  <i>Patch the discontinued SolveMyBook extension to work again using your own Anthropic API key no account or subscription needed.</i>
 </p>
 # SolveMyBook-Public-Patch
 
