@@ -1,6 +1,27 @@
 <img width="79" height="77" alt="image" src="https://github.com/user-attachments/assets/0a5d5301-0ebe-4d1c-adc6-57476c67e722" />
 <img width="283" height="429" alt="image" src="https://github.com/user-attachments/assets/15853b5f-babd-46d9-bfd3-62581bf51b2e" />
+# SolveMyBook Offline Patch
 
+<p align="center">
+  <img src="https://your-image-url-here.png" width="200">
+</p>
+
+<p align="center">
+  <img src="https://img.shields.io/badge/release-v1.0-blue">
+  <img src="https://img.shields.io/badge/license-MIT-green">
+  <img src="https://img.shields.io/badge/model-Claude%20Sonnet%20%2F%20Haiku-orange">
+</p>
+
+<p align="center">
+  <i>Patch the discontinued SolveMyBook extension to work again using your own Anthropic API key — no account or subscription needed.</i>
+</p>
+
+<p align="center">
+  <a href="#installation">Installation</a> •
+  <a href="#usage">Usage</a> •
+  <a href="#limitations">Limitations</a> •
+  <a href="#disclaimer">Disclaimer</a>
+</p>
 # SolveMyBook-Public-Patch
 
 Patch for the discontinued SolveMyBook Chrome extension — replaces the broken backend with your own Anthropic API key so it works again without an account or subscription.
