@@ -1,0 +1,119 @@
+{
+  "manifest_version": 3,
+  "name": "SolveMyBook Offline",
+  "description": "AI-powered McGraw Hill assignment helper \u2014 offline mode. Modified by Ahmed Abdullah.",
+  "author": "Modified by Ahmed Abdullah | Original: solvemybook.com",
+  "version": "1.4.0",
+  "icons": {
+    "16": "i5c8/icon-16px.png",
+    "32": "i5c8/icon-32px.png",
+    "48": "i5c8/icon-48px.png",
+    "128": "i5c8/icon-128px.png"
+  },
+  "permissions": [
+    "tabs",
+    "storage",
+    "cookies",
+    "contextMenus",
+    "sidePanel",
+    "scripting",
+    "offscreen"
+  ],
+  "commands": {
+    "ct_keyboard_take_screenshot": {
+      "suggested_key": {
+        "default": "Alt+Shift+1",
+        "mac": "Alt+Shift+1"
+      },
+      "description": "Take screenshot"
+    },
+    "ct_keyboard_ai_chat": {
+      "suggested_key": {
+        "default": "Alt+Shift+2",
+        "mac": "Alt+Shift+2"
+      },
+      "description": "Open AI Chat"
+    }
+  },
+  "host_permissions": [
+    "<all_urls>"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_title": "SolveMyBook Offline"
+  },
+  "side_panel": {
+    "default_path": "p8g3/s6t1/18b88ecb.html"
+  },
+  "web_accessible_resources": [
+    {
+      "resources": [
+        "i8m7/*",
+        "f2n6/*.ttf",
+        "9446707e.css",
+        "a9n2/*",
+        "p8g3/s6t1/setup.js",
+        "m4d8/e3x9/autosolve.js",
+        "p8g3/p9k4/autosolve-settings.html",
+        "p8g3/p9k4/autosolve-settings.js",
+        "p8g3/p9k4/popup-offline.js",
+        "p8g3/p9k4/434e26c4.html"
+      ],
+      "matches": [
+        "*://*.mheducation.com/*",
+        "<all_urls>"
+      ]
+    }
+  ],
+  "content_scripts": [
+    {
+      "matches": [
+        "*://*.mheducation.com/*"
+      ],
+      "css": [
+        "9446707e.css",
+        "lib/katex/katex.min.css"
+      ],
+      "js": [
+        "m4d8/a6b1/9b5622cf.js",
+        "m4d8/a6b1/59a71f98.js",
+        "m4d8/a6b1/f334042a.js",
+        "m4d8/a6b1/b1cdcf35.js",
+        "m4d8/a6b1/f381ae04.js",
+        "m4d8/a6b1/54365fab.js",
+        "m4d8/a6b1/89daa7f1.js",
+        "m4d8/a6b1/2dc21a48.js",
+        "m4d8/e3x9/54c5dd4b.js",
+        "m4d8/e3x9/68e9b05f.js",
+        "m4d8/e3x9/3bd8a282.js",
+        "m4d8/e3x9/ead6d026.js",
+        "m4d8/e3x9/96a95a2a.js",
+        "m4d8/e3x9/eebcce90.js",
+        "m4d8/e3x9/712ab7a6.js",
+        "contentscript.js",
+        "m4d8/e3x9/13e25758.js",
+        "lib/marked.min.js",
+        "lib/purify.min.js",
+        "lib/jquery-3.1.1.min.js",
+        "lib/katex/katex.min.js",
+        "lib/browser-image-compression.js",
+        "lib/lottie.min.js",
+        "m4d8/e3x9/autosolve.js",
+        "m4d8/e3x9/autosolve_btn.js"
+      ],
+      "all_frames": true
+    },
+    {
+      "matches": [
+        "*://*.solvemybook.com/*",
+        "http://127.0.0.1:5500/*"
+      ],
+      "js": [
+        "m4d8/i7f2/7b42122e.js"
+      ],
+      "all_frames": false
+    }
+  ]
+}
