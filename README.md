@@ -37,8 +37,6 @@ p8g3/p9k4/autosolve-settings.js  ← new file, create if missing
 4. Select the new modified `solve-my-book` folder
 
 ### 5. Enter your API key
-### 5. Enter your API key
-
 A setup page will open automatically when you first install the extension.
 
 **Getting a free Anthropic API key:**
