@@ -14,6 +14,7 @@
 <p align="center">
   <i>Patch the discontinued SolveMyBook extension to work again using your own Anthropic API key no account or subscription needed.</i>
 </p>
+https://img.shields.io/github/issues/YourUsername/YourRepoName
 # SolveMyBook-Public-Patch
 
 Patch for the discontinued SolveMyBook Chrome extension — replaces the broken backend with your own Anthropic API key so it works again without an account or subscription.
