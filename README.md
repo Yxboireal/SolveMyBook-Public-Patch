@@ -75,15 +75,15 @@ Navigate to any McGraw-Hill SmartBook assignment and click the teal 🎯 button 
 This patch works well for the most common SmartBook question types but has some limitations to be aware of:
 
 **Supported question types:**
-- ✅ Multiple choice (single answer)
-- ✅ Select all that apply
-- ✅ Fill in the blank (single and multiple blanks)
+- Multiple choice (single answer)
+- Select all that apply
+- Fill in the blank (single and multiple blanks)
 
 **Not supported:**
-- ❌ Drag and drop / matching questions — the extension will get stuck and not advance
-- ❌ Diagram-based questions — where you click on parts of an image or label a diagram
-- ❌ Ordered sequence questions — where you drag items into the correct order
-- ❌ Hotspot questions — where you click a specific region of an image
+- Drag and drop / matching questions — the extension will get stuck and not advance
+- Diagram-based questions — where you click on parts of an image or label a diagram
+- Ordered sequence questions — where you drag items into the correct order
+- Hotspot questions — where you click a specific region of an image
 
 **Other limitations:**
 - The extension only works on **McGraw-Hill SmartBook** pages (`learning.mheducation.com`). It will not work on other platforms.
