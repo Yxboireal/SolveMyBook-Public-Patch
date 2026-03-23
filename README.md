@@ -9,7 +9,7 @@
   <img src="https://img.shields.io/badge/release-v1.0-blue">
   <img src="https://img.shields.io/badge/license-MIT-green">
   <img src="https://img.shields.io/badge/model-Claude%20Sonnet%20%2F%20Haiku-orange">
-  <img src="https://img.shields.io/github/issues/Yxboireal/SolveMyBook-Patch">
+  <img src="https://img.shields.io/github/issues/Yxboireal/SolveMyBook-Public-Patch">
 </p>
 
 <p align="center">
