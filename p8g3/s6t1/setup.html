@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SolveMyBook – Offline Setup</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    background: #0f0f13; color: #e2e8f0; min-height: 100vh;
+    display: flex; align-items: center; justify-content: center; }
+  .card { background: #1a1a2e; border: 1px solid #2d2d44; border-radius: 16px;
+    padding: 40px; max-width: 480px; width: 90%; text-align: center; }
+  .logo { font-size: 32px; margin-bottom: 8px; }
+  h1 { font-size: 22px; font-weight: 700; margin-bottom: 6px;
+    background: linear-gradient(135deg,#6366f1,#a78bfa); -webkit-background-clip:text; -webkit-text-fill-color:transparent; }
+  .badge { display:inline-block; background:#1e3a5f; color:#60a5fa; font-size:11px; font-weight:600;
+    padding:3px 10px; border-radius:20px; margin-bottom:20px; letter-spacing:.5px; }
+  p { color: #94a3b8; font-size: 14px; line-height: 1.6; margin-bottom: 20px; }
+  .steps { text-align: left; background: #111827; border-radius: 10px; padding: 16px 20px; margin-bottom: 24px; }
+  .steps li { color: #94a3b8; font-size: 13px; margin-bottom: 8px; list-style: none; padding-left: 20px; position: relative; }
+  .steps li::before { content: attr(data-n); position: absolute; left: 0; color: #6366f1; font-weight: 700; }
+  .steps a { color: #818cf8; text-decoration: none; }
+  .steps a:hover { text-decoration: underline; }
+  label { display: block; text-align: left; font-size: 13px; font-weight: 600; color: #94a3b8; margin-bottom: 6px; }
+  input[type=text] { width: 100%; padding: 12px 14px; background: #111827;
+    border: 1px solid #374151; border-radius: 8px; color: #e2e8f0; font-size: 13px;
+    outline: none; font-family: monospace; letter-spacing: .3px; }
+  input[type=text]:focus { border-color: #6366f1; }
+  button { width: 100%; padding: 13px; background: linear-gradient(135deg,#6366f1,#818cf8);
+    border: none; border-radius: 8px; color: #fff; font-size: 15px; font-weight: 600;
+    cursor: pointer; margin-top: 14px; transition: opacity .2s; }
+  button:hover { opacity: .9; }
+  button:disabled { opacity: .5; cursor: not-allowed; }
+  .success { display:none; background:#064e3b; border:1px solid #059669; border-radius:8px;
+    padding:12px; margin-top:14px; color:#34d399; font-size:14px; }
+  .error { display:none; background:#450a0a; border:1px solid #dc2626; border-radius:8px;
+    padding:12px; margin-top:14px; color:#f87171; font-size:14px; }
+  .model-note { font-size:12px; color:#64748b; margin-top:12px; }
+  .warning { background:#422006; border:1px solid #d97706; border-radius:8px;
+    padding:10px 14px; margin-bottom:20px; color:#fcd34d; font-size:12px; text-align:left; }
+</style>
+</head>
+<body>
+<div class="card">
+  <div class="logo">&#x1F4DA;</div>
+  <h1>SolveMyBook</h1>
+  <div class="badge">OFFLINE MODE</div>
+  <p>Patched to work offline using your own Anthropic API key. No account or subscription needed.</p>
+  <div class="warning">
+    &#x26A0;&#xFE0F; <strong>Never share your API key</strong> with anyone. It is stored locally on your device only.
+  </div>
+  <ol class="steps">
+    <li data-n="1">Go to <a href="https://console.anthropic.com" target="_blank">console.anthropic.com</a> and sign up (free)</li>
+    <li data-n="2">Navigate to <strong>API Keys</strong> and create a new key</li>
+    <li data-n="3">Paste it below</li>
+  </ol>
+  <label for="apikey">Your Anthropic API Key</label>
+  <input type="text" id="apikey" placeholder="sk-ant-api03-..." spellcheck="false" autocomplete="off">
+  <button id="saveBtn">Save &amp; Activate</button>
+  <div class="success" id="success">&#x2705; Key saved! Close this tab and use SolveMyBook on McGraw-Hill pages.</div>
+  <div class="error" id="error"></div>
+  <p class="model-note">Uses <strong>claude-haiku-4-5-20251001</strong> — fast and affordable.</p>
+</div>
+<script src="setup.js"></script>
+</body>
+</html>
