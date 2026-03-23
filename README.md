@@ -34,10 +34,27 @@ p8g3/p9k4/autosolve-settings.js  ← new file, create if missing
 1. Go to `chrome://extensions`
 2. Enable **Developer mode** (top right)
 3. Click **Load unpacked**
-4. Select the `solve-my-book-1_4_0` folder
+4. Select the new modified `solve-my-book` folder
 
 ### 5. Enter your API key
-A setup page will open automatically. Paste your Anthropic API key from [console.anthropic.com](https://console.anthropic.com) and click **Save & Activate**.
+### 5. Enter your API key
+
+A setup page will open automatically when you first install the extension.
+
+**Getting a free Anthropic API key:**
+1. Go to [console.anthropic.com](https://console.anthropic.com) and create a free account
+2. Click **API Keys** in the left sidebar
+3. Click **Create Key**, give it a name, and copy it
+4. Paste it into the setup page and click **Save & Activate**
+
+**Do I need to pay?**
+Anthropic gives you **$5 free credit** when you sign up — this is more than enough to complete hundreds of assignments. The extension uses two models:
+- **Claude Haiku** for multiple choice — roughly **$0.001 per assignment** (fractions of a cent)
+- **Claude Sonnet** for fill-in-the-blank — roughly **$0.02 per assignment**
+
+A typical 12-question SmartBook assignment costs **less than $0.05 total**. Your $5 free credit will last a very long time before you need to add any payment method.
+
+You can monitor your usage at [console.anthropic.com](https://console.anthropic.com) under **Usage**.
 
 ### 6. Use it
 Navigate to any McGraw-Hill SmartBook assignment and click the teal 🎯 button in the bottom-right corner.
