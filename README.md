@@ -9,7 +9,7 @@ Patch for the discontinued SolveMyBook Chrome extension — replaces the broken 
 ## Installation
 
 ### 1. Get the original extension
-Download `solve-my-book-1_4_0.zip` and unzip it. You should have a folder called `solve-my-book-1_4_0`.
+Grab the original `solve-my-book.zip` and unzip it. You should have a folder called `solve-my-book`. or something similar depending on the version you have.
 
 ### 2. Download this patch
 Click **Code → Download ZIP** on this repo and unzip it.
