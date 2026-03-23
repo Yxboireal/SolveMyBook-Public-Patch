@@ -87,7 +87,7 @@ This patch works well for the most common SmartBook question types but has some 
 
 **Other limitations:**
 - The extension only works on **McGraw-Hill SmartBook** pages (`learning.mheducation.com`). It will not work on other platforms.
-- It requires an **active internet connection** to reach the Anthropic API — it is not truly offline, just account-free.
+- It requires an **active internet connection** to reach the Anthropic API it is not truly offline, just account-free.
 - AI answers are not guaranteed to be correct. Sonnet and Haiku are strong models but can still make mistakes, especially on highly specific or niche topics.
 - If McGraw-Hill updates their website frontend, selectors may break and require a patch update.
-- The extension must remain as an **unpacked extension** — it cannot be published to the Chrome Web Store.
+- The extension must remain as an **unpacked extension** it cannot be published to the Chrome Web Store.
