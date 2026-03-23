@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AutoSolve Settings</title>
+<link href="/c7s4/b6f64396.css" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="/c7s4/b404d39d.css" />
+<style>
+  .conf-pills { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 6px; }
+  .conf-pill {
+    padding: 5px 14px; border-radius: 20px; font-size: 12px; font-weight: 600;
+    cursor: pointer; border: 2px solid transparent;
+    background: #f1f3f4; color: #444; transition: all .2s; user-select: none;
+  }
+  .conf-pill.active.high   { background: #22c55e; color: white; border-color: #16a34a; }
+  .conf-pill.active.medium { background: #f59e0b; color: white; border-color: #d97706; }
+  .conf-pill.active.low    { background: #ef4444; color: white; border-color: #dc2626; }
+  .conf-pill:not(.active)  { background: #e2e8f0; color: #64748b; }
+
+  .range-row { display: flex; align-items: center; gap: 10px; margin-top: 8px; }
+  .range-row input[type=range] { flex: 1; accent-color: #6366f1; }
+  .range-val { min-width: 36px; text-align: right; font-weight: 700; font-size: 13px; color: #6366f1; }
+
+  .range-pair { display: flex; gap: 6px; margin-top: 8px; }
+  .range-pair .range-group { flex: 1; }
+  .range-label { font-size: 11px; color: #94a3b8; margin-bottom: 2px; }
+
+  .section-desc { font-size: 12px; color: #94a3b8; margin: 4px 0 10px 0; line-height: 1.4; }
+  .save-btn {
+    width: 100%; padding: 11px; background: linear-gradient(135deg,#6366f1,#818cf8);
+    border: none; border-radius: 8px; color: white; font-size: 14px; font-weight: 600;
+    cursor: pointer; margin-top: 16px; transition: opacity .2s;
+  }
+  .save-btn:hover { opacity: .9; }
+  .saved-badge {
+    display: none; text-align: center; margin-top: 8px;
+    color: #22c55e; font-size: 13px; font-weight: 600;
+  }
+  .grade-preview {
+    font-size: 12px; color: #94a3b8; margin-top: 4px;
+    text-align: center;
+  }
+</style>
+</head>
+<body>
+<div class="main-wrpper non-selectable">
+  <div class="main-body extension-body">
+    <header>
+      <a id="returnHome" class="btn-back">
+        <span><img src="/i8m7/arrow-left2.svg" draggable="false" alt="" width="15"></span>
+      </a>
+      <span class="page-title">AutoSolve Settings</span>
+      <div class="head-right" style="width:50px"></div>
+    </header>
+
+    <div class="announcements-block satting-wrp">
+      <div class="inner-announcements-block">
+
+        <!-- Confidence Level -->
+        <div class="extention-lst shortcutbox">
+          <h2>Confidence Level</h2>
+          <p class="section-desc">Select which confidence buttons to use. Selecting multiple will randomize between them to look more human.</p>
+          <div class="conf-pills">
+            <div class="conf-pill high" data-level="high">High</div>
+            <div class="conf-pill medium" data-level="medium">Medium</div>
+            <div class="conf-pill low" data-level="low">Low</div>
+          </div>
+        </div>
+
+        <!-- Grade Range -->
+        <div class="extention-lst shortcutbox">
+          <h2>Grade Range</h2>
+          <p class="section-desc">Target score range. The autosolve will intentionally get some answers wrong to stay within this range and look natural.</p>
+          <div class="range-pair">
+            <div class="range-group">
+              <div class="range-label">Min %</div>
+              <div class="range-row">
+                <input type="range" id="gradeMin" min="50" max="100" step="5" value="80">
+                <span class="range-val" id="gradeMinVal">80%</span>
+              </div>
+            </div>
+            <div class="range-group">
+              <div class="range-label">Max %</div>
+              <div class="range-row">
+                <input type="range" id="gradeMax" min="50" max="100" step="5" value="100">
+                <span class="range-val" id="gradeMaxVal">100%</span>
+              </div>
+            </div>
+          </div>
+          <div class="grade-preview" id="gradePreview">Targets 80–100% correct answers</div>
+        </div>
+
+        <!-- Speed / Delays -->
+        <div class="extention-lst shortcutbox">
+          <h2>Answer Speed</h2>
+          <p class="section-desc">How long to wait before selecting an answer and advancing. Slower = more human-looking.</p>
+          <div class="range-label" style="margin-top:6px">Answer delay (seconds)</div>
+          <div class="range-pair">
+            <div class="range-group">
+              <div class="range-label">Min</div>
+              <div class="range-row">
+                <input type="range" id="answerMin" min="0.5" max="10" step="0.5" value="1">
+                <span class="range-val" id="answerMinVal">1s</span>
+              </div>
+            </div>
+            <div class="range-group">
+              <div class="range-label">Max</div>
+              <div class="range-row">
+                <input type="range" id="answerMax" min="0.5" max="10" step="0.5" value="3">
+                <span class="range-val" id="answerMaxVal">3s</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="range-label" style="margin-top:10px">Advance delay (seconds)</div>
+          <div class="range-pair">
+            <div class="range-group">
+              <div class="range-label">Min</div>
+              <div class="range-row">
+                <input type="range" id="advanceMin" min="0.5" max="10" step="0.5" value="1">
+                <span class="range-val" id="advanceMinVal">1s</span>
+              </div>
+            </div>
+            <div class="range-group">
+              <div class="range-label">Max</div>
+              <div class="range-row">
+                <input type="range" id="advanceMax" min="0.5" max="10" step="0.5" value="3">
+                <span class="range-val" id="advanceMaxVal">3s</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <button class="save-btn" id="saveBtn">Save Settings</button>
+        <div class="saved-badge" id="savedBadge">✓ Settings saved!</div>
+
+      </div>
+    </div>
+  </div>
+</div>
+<script src="/p8g3/p9k4/autosolve-settings.js"></script>
+</body>
+</html>

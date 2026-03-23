@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SolveMyBook Offline</title>
+<link href="/c7s4/b6f64396.css" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="/c7s4/b404d39d.css" />
+<style>
+  /* AutoSolve panel */
+  .autosolve-panel { display:none; flex-direction:column; gap:0; }
+  .autosolve-panel.open { display:flex; }
+
+  /* Start button — matches original green btn-in style */
+  .autosolve-trigger {
+    display:flex; align-items:center; justify-content:space-between;
+    width:100%; padding:14px 16px;
+    background: linear-gradient(117deg,#14BF96 47.66%,#63F6D3 103.46%);
+    border-radius:16px; border:none; cursor:pointer;
+    font-family:'Plus Jakarta Sans',sans-serif;
+    transition:.3s linear;
+  }
+  .autosolve-trigger:hover { opacity:.9; }
+  .autosolve-trigger .trigger-left { display:flex; align-items:center; gap:10px; }
+  .autosolve-trigger .trigger-icon {
+    width:28px; height:28px; border-radius:50%;
+    background:#FFFFFF33; display:flex; align-items:center; justify-content:center;
+  }
+  .autosolve-trigger .trigger-label { color:#fff; font-size:14px; font-weight:600; }
+  .autosolve-trigger .trigger-chevron {
+    width:20px; height:20px; transition:transform .25s ease;
+    filter:brightness(0) invert(1); opacity:.8;
+  }
+  .autosolve-trigger .trigger-chevron.rotated { transform:rotate(180deg); }
+
+  /* Expanded panel */
+  .autosolve-expanded {
+    background:#FFFFFF1A; border-radius:0 0 16px 16px;
+    border:1px solid #FFFFFF1A; border-top:none;
+    padding:14px 16px 16px; display:flex; flex-direction:column; gap:12px;
+    margin-top:-4px;
+  }
+
+  /* Running indicator */
+  .run-indicator {
+    display:flex; align-items:center; justify-content:space-between;
+    background:#FFFFFF0D; border-radius:10px; padding:10px 12px;
+  }
+  .run-dot {
+    width:8px; height:8px; border-radius:50%; background:#94a3b8;
+    margin-right:8px; flex-shrink:0;
+  }
+  .run-dot.active { background:#22c55e; box-shadow:0 0 6px #22c55e; animation:pulse 1.2s infinite; }
+  @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:.4} }
+  .run-label { color:#fff; font-size:12px; font-weight:500; flex:1; }
+  .run-timer { color:#94a3b8; font-size:12px; font-weight:600; font-variant-numeric:tabular-nums; }
+  .run-stats { color:#94a3b8; font-size:11px; }
+
+  /* Settings rows */
+  .setting-row { display:flex; flex-direction:column; gap:6px; }
+  .setting-row-label {
+    font-size:11px; font-weight:600; color:#94a3b8; text-transform:uppercase; letter-spacing:.5px;
+  }
+
+  /* Confidence pills */
+  .conf-pills { display:flex; gap:6px; }
+  .conf-pill {
+    flex:1; padding:7px 0; border-radius:10px; font-size:12px; font-weight:600;
+    border:1.5px solid #FFFFFF1A; background:#FFFFFF0D; color:#94a3b8;
+    cursor:pointer; text-align:center; transition:all .2s; user-select:none;
+  }
+  .conf-pill.active.high   { background:#16a34a33; border-color:#22c55e; color:#22c55e; }
+  .conf-pill.active.medium { background:#d9770633; border-color:#f59e0b; color:#f59e0b; }
+  .conf-pill.active.low    { background:#dc262633; border-color:#ef4444; color:#ef4444; }
+
+  /* Accuracy slider */
+  .accuracy-row { display:flex; align-items:center; gap:8px; }
+  .accuracy-row input[type=range] { flex:1; accent-color:#14BF96; height:4px; }
+  .accuracy-val { color:#fff; font-size:12px; font-weight:700; min-width:60px; text-align:right; }
+
+  /* Delay row */
+  .delay-pair { display:grid; grid-template-columns:1fr 1fr; gap:8px; }
+  .delay-group { display:flex; flex-direction:column; gap:4px; }
+  .delay-group-label { font-size:10px; color:#64748b; }
+  .delay-group input[type=range] { width:100%; accent-color:#14BF96; }
+  .delay-val { color:#CBD5E1; font-size:11px; font-weight:600; }
+
+  /* Action buttons */
+  .action-row { display:flex; gap:8px; margin-top:2px; }
+  .btn-start {
+    flex:1; padding:11px; border-radius:12px; border:none; cursor:pointer;
+    background:linear-gradient(117deg,#14BF96 47.66%,#63F6D3 103.46%);
+    color:#fff; font-size:13px; font-weight:700;
+    font-family:'Plus Jakarta Sans',sans-serif; transition:.2s;
+  }
+  .btn-start:hover { opacity:.9; }
+  .btn-stop {
+    flex:1; padding:11px; border-radius:12px;
+    border:1.5px solid #ef4444; background:transparent;
+    color:#ef4444; font-size:13px; font-weight:700;
+    font-family:'Plus Jakarta Sans',sans-serif; cursor:pointer; transition:.2s;
+    display:none;
+  }
+  .btn-stop:hover { background:#ef444422; }
+  .btn-stop.visible { display:block; }
+  .btn-start.running { display:none; }
+
+  /* Divider */
+  .divider { height:1px; background:#FFFFFF1A; }
+</style>
+</head>
+<body>
+<div class="main-wrpper non-selectable">
+  <div class="main-body extension-body loading">
+    <header>
+      <a><img style="height:24px" draggable="false" src="/i8m7/logo_landing.svg" alt=""></a>
+      <div class="head-right">
+        <ul>
+          <li><a id="settingsBox" title="Settings"><img draggable="false" src="/i8m7/setting-ic.svg" width="14" alt=""></a></li>
+        </ul>
+      </div>
+    </header>
+
+    <div class="extention-box">
+
+      <!-- Enable toggle -->
+      <div class="extention-lst">
+        <ul>
+          <li>
+            <div class="leftexbx">
+              <h3>
+                <a href="#"><img src="/i8m7/info-toolbar.svg" alt="">
+                  <div class="toolbx" style="max-width:250px;width:250px">
+                    <p>Globally enable or disable SolveMyBook AI features.</p>
+                  </div>
+                </a>
+                <span>Enable SolveMyBook</span>
+              </h3>
+            </div>
+            <div class="rightexbx">
+              <div class="shitchbx">
+                <input type="checkbox" id="switch" class="setting-1"><label for="switch"></label>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+
+      <!-- AutoSolve section -->
+      <div class="extention-lst" style="margin-bottom:0">
+        <!-- Trigger button -->
+        <button class="autosolve-trigger" id="autosolve-trigger">
+          <div class="trigger-left">
+            <div class="trigger-icon">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="white"><polygon points="5,3 19,12 5,21"/></svg>
+            </div>
+            <span class="trigger-label">Start Auto-Solve</span>
+          </div>
+          <img class="trigger-chevron" id="trigger-chevron" src="/i8m7/chevron-down.svg" alt="">
+        </button>
+
+        <!-- Expanded panel -->
+        <div class="autosolve-panel" id="autosolve-panel">
+          <div class="autosolve-expanded">
+
+            <!-- Status row -->
+            <div class="run-indicator">
+              <div class="run-dot" id="run-dot"></div>
+              <span class="run-label" id="run-label">Not running</span>
+              <span class="run-timer" id="run-timer"></span>
+            </div>
+            <div class="run-stats" id="run-stats" style="display:none;padding:0 2px">
+              ✓ <span id="stat-correct">0</span> correct &nbsp;✗ <span id="stat-wrong">0</span> wrong &nbsp;<span id="stat-pct">—</span>
+            </div>
+
+            <div class="divider"></div>
+
+            <!-- Confidence -->
+            <div class="setting-row">
+              <div class="setting-row-label">Confidence Level</div>
+              <div class="conf-pills">
+                <div class="conf-pill high active" data-level="high">High</div>
+                <div class="conf-pill medium" data-level="medium">Medium</div>
+                <div class="conf-pill low" data-level="low">Low</div>
+              </div>
+            </div>
+
+            <!-- Grade accuracy -->
+            <div class="setting-row">
+              <div class="setting-row-label">Target Accuracy</div>
+              <div class="accuracy-row">
+                <input type="range" id="accMin" min="50" max="100" step="5" value="100">
+                <span class="accuracy-val" id="accMinVal">100%–100%</span>
+                <input type="range" id="accMax" min="50" max="100" step="5" value="100" style="display:none">
+              </div>
+            </div>
+
+            <!-- Delays -->
+            <div class="setting-row">
+              <div class="setting-row-label">Answer Delay &amp; Advance Delay (seconds)</div>
+              <div class="delay-pair">
+                <div class="delay-group">
+                  <div class="delay-group-label">Answer min–max</div>
+                  <input type="range" id="ansMin" min="0.5" max="8" step="0.5" value="1">
+                  <input type="range" id="ansMax" min="0.5" max="8" step="0.5" value="3">
+                  <div class="delay-val" id="ansVal">1s – 3s</div>
+                </div>
+                <div class="delay-group">
+                  <div class="delay-group-label">Advance min–max</div>
+                  <input type="range" id="advMin" min="0.5" max="8" step="0.5" value="1">
+                  <input type="range" id="advMax" min="0.5" max="8" step="0.5" value="3">
+                  <div class="delay-val" id="advVal">1s – 3s</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="divider"></div>
+
+            <!-- Action buttons -->
+            <div class="action-row">
+              <button class="btn-start" id="btn-start">▶ Start</button>
+              <button class="btn-stop" id="btn-stop">■ Stop</button>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+      <!-- Snapshot / Chat -->
+      <div class="btn-group exbtn" style="margin-top:16px">
+        <ul>
+          <li>
+            <a id="snapshotButton" href="#" class="btn-in-2 disabled">
+              <div class="icon"><img src="/i8m7/screenshott.svg" draggable="false" alt=""></div>
+              <span>Snapshot</span>
+            </a>
+          </li>
+          <li>
+            <a id="aiChatButton" href="#" class="btn-in-2 disabled">
+              <div class="icon"><img src="/i8m7/message-circleAI-toolbar.svg" draggable="false" alt=""></div>
+              <span>AI Chat</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+
+    </div><!-- extention-box -->
+  </div>
+</div>
+
+<script src="/p8g3/p9k4/popup-offline.js"></script>
+</body>
+</html>
